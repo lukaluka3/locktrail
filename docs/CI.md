@@ -4,10 +4,8 @@ The CLI does not post pull-request comments or require a write token. A Markdown
 report can be appended to `GITHUB_STEP_SUMMARY`. Start in reporting mode; choose
 `--fail-on review` after deciding which signals your team wants to gate.
 
-The following recipe is for **after publishing the repository**. Replace
-`YOUR_OWNER/locktrail` and `FULL_REVIEWED_COMMIT_SHA` with the actual repository
-and an immutable commit. These are explicit placeholders, not working release
-coordinates. Until then, use a trusted local checkout of the tool.
+The following recipe pins the initially verified source commit. Update that pin
+deliberately when adopting a newer release.
 
 ```yaml
 name: Dependency review
@@ -25,8 +23,8 @@ jobs:
           persist-credentials: false
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          repository: YOUR_OWNER/locktrail
-          ref: FULL_REVIEWED_COMMIT_SHA
+          repository: lukaluka3/locktrail
+          ref: 8557a66e7095c0ad7e5675405a159dcc3721d942
           path: tool
           persist-credentials: false
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1

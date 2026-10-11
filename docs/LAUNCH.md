@@ -99,7 +99,7 @@ Use only once there is a public working release and the text matches it.
 
 **Title:** Show HN: Locktrail – explain npm lockfile changes and dependency paths
 
-**URL:** `<REPOSITORY_URL>`
+**URL:** `https://github.com/lukaluka3/locktrail`
 
 **First comment:**
 
@@ -107,7 +107,9 @@ Use only once there is a public working release and the text matches it.
 >
 > The comparison runs locally without installing the target project or fetching its packages. It reads lockfile metadata; it does not inspect package behavior or give a vulnerability/safety verdict. The README lists supported lockfile versions and graph limitations.
 >
-> Demo and exact commands: `<README_DEMO_LINK>`
+> Interactive synthetic demo: https://lukaluka3.github.io/locktrail/
+>
+> Source and exact commands: https://github.com/lukaluka3/locktrail#try-it-in-30-seconds
 >
 > There are already good tools here, including lockdelta, git-pkgs and lockdiff. I am exploring whether combining the changed package location with its direct-dependency/workspace explanation makes a more useful review. The research document links these alternatives.
 >
@@ -127,7 +129,9 @@ Choose one relevant community whose current rules allow an author project post. 
 >
 > The question I wanted to answer is: "This nested package changed, but which dependency in my app brings it in?" The report keeps separate installed copies distinct, shows a path back to a direct dependency or workspace, and highlights a few metadata changes for closer review.
 >
-> Source and runnable example: `<REPOSITORY_URL>`
+> Source and runnable example: https://github.com/lukaluka3/locktrail
+>
+> Interactive synthetic demo: https://lukaluka3.github.io/locktrail/
 >
 > It compares local lockfiles without installing the target project or contacting a registry. It does not read the package code or decide whether a package is safe. The README documents the supported npm lockfile versions and limitations.
 >
