@@ -24,5 +24,7 @@ jobs:
           node-version: ${{ matrix.node }}
           package-manager-cache: false
       - run: npm run check
+      - run: npm run build:demo
+      - run: git diff --exit-code -- docs/index.html
       - run: node bin/locktrail.mjs demo --format html --output locktrail-demo.html
       - run: npm pack --dry-run

@@ -7,6 +7,9 @@ paths lead to it, and which metadata changes deserve a closer look.
 
 Local CLI · portable HTML · JSON and Markdown · zero dependencies · MIT
 
+[**Open the interactive demo**](https://lukaluka3.github.io/locktrail/) ·
+[Quick start](#try-it-in-30-seconds) · [How it was tested](docs/VALIDATION.md)
+
 ![Locktrail's offline dependency review report](docs/assets/demo.png)
 
 ## Try it in 30 seconds
@@ -162,9 +165,9 @@ npm run check
 npm pack --dry-run
 ```
 
-No dependency installation or build step is needed. CI is configured for Node
-20/22/24 on Linux, macOS and Windows; configured jobs are not a claim that remote
-CI has already run. See [validation evidence](docs/VALIDATION.md),
+No dependency installation or build step is needed for the CLI. The initial CI run
+passed on Node 20/22/24 across Linux, macOS and Windows. `npm run build:demo`
+regenerates the hosted synthetic demo from the same engine. See [validation evidence](docs/VALIDATION.md),
 [contributing](CONTRIBUTING.md), and the [roadmap](docs/ROADMAP.md).
 
 If a dependency path looks wrong, a small before/after fixture makes a great

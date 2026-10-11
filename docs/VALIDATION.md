@@ -1,5 +1,11 @@
 # Real lockfile validation
 
+The [initial GitHub CI run](https://github.com/lukaluka3/locktrail/actions/runs/38180250693)
+at commit `8557a66e7095c0ad7e5675405a159dcc3721d942` passed all nine jobs:
+Node.js 20, 22, and 24 on Windows, Linux, and macOS. Each job ran the 50-test suite,
+syntax checks, HTML demo generation, and package dry-run. The local evidence below
+was recorded before that remote run.
+
 Recorded on 2026-10-12 against the local, unreleased Locktrail 0.1.0 implementation. Two pairs of public npm lockfiles were downloaded at immutable Git commits and analyzed without installing either target project. This is a reproducible smoke check with selected declaration checks, not a security assessment, proof of complete npm compatibility, or a performance benchmark.
 
 Environment: Node.js `v24.15.0`, Windows `10.0.19045.0`, Windows PowerShell `5.1.19041.6456`. JSON, text and HTML were generated for each pair. All six final CLI invocations exited 0. The analysis used local input files; fetching those inputs from GitHub was a separate network operation.

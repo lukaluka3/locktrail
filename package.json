@@ -10,6 +10,7 @@
   "scripts": {
     "test": "node --test",
     "demo": "node bin/locktrail.mjs demo",
+    "build:demo": "node scripts/build-demo.mjs",
     "demo:html": "node bin/locktrail.mjs demo --format html --output locktrail-demo.html",
     "check": "node --check bin/locktrail.mjs && node --check src/cli.mjs && node --check src/engine.mjs && node --check src/report.mjs && node --test"
   },
