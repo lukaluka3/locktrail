@@ -1,0 +1,16 @@
+name: Workflow improvement
+description: Describe a dependency review task Locktrail could help with.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to review?
+      description: Include the package manager and a concrete example if possible.
+    validations:
+      required: true
+  - type: textarea
+    id: workaround
+    attributes:
+      label: How do you do it today?
+    validations:
+      required: true

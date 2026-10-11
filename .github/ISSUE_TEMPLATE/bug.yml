@@ -1,0 +1,30 @@
+name: Incorrect dependency report
+description: Help us reproduce a wrong result or a crash.
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Locktrail version and Node version
+      placeholder: "0.1.0 / Node 24 / Windows"
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command and actual result
+      description: Remove credentials, private package names, and internal URLs before sharing.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: fixture
+    attributes:
+      label: Minimal before and after lockfiles
+      description: Synthetic or public examples are best. Do not include secrets.
+      render: json

@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Report a security vulnerability privately
+    url: https://github.com/lukaluka3/locktrail/security/advisories/new
+    about: Please keep vulnerability details and private lockfile data out of public issues.

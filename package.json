@@ -1,0 +1,21 @@
+{
+  "name": "locktrail",
+  "version": "0.1.0",
+  "description": "Understand dependency changes. Offline npm lockfile review with dependency trails.",
+  "type": "module",
+  "bin": { "locktrail": "bin/locktrail.mjs" },
+  "exports": { ".": "./src/index.mjs" },
+  "files": ["bin", "src", "examples", "README.md", "LICENSE"],
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test",
+    "demo": "node bin/locktrail.mjs demo",
+    "demo:html": "node bin/locktrail.mjs demo --format html --output locktrail-demo.html",
+    "check": "node --check bin/locktrail.mjs && node --check src/cli.mjs && node --check src/engine.mjs && node --check src/report.mjs && node --test"
+  },
+  "keywords": ["lockfile", "dependency-review", "npm", "supply-chain", "git", "developer-tools", "cli"],
+  "repository": { "type": "git", "url": "https://github.com/lukaluka3/locktrail.git" },
+  "homepage": "https://github.com/lukaluka3/locktrail#readme",
+  "bugs": { "url": "https://github.com/lukaluka3/locktrail/issues" },
+  "license": "MIT"
+}
