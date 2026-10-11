@@ -14,23 +14,49 @@ Local CLI · portable HTML · JSON and Markdown · zero dependencies · MIT
 
 ## Try it in 30 seconds
 
-Requires **Node.js 20+** and Git:
+Requires **Node.js 20+** and npm. Try the pinned GitHub release without cloning
+this repository or installing a global command:
 
 ```sh
-git clone https://github.com/lukaluka3/locktrail.git
-cd locktrail
-node bin/locktrail.mjs demo
-node bin/locktrail.mjs demo --format html --output report.html
+npm exec --yes --ignore-scripts --package=https://github.com/lukaluka3/locktrail/releases/download/v0.1.0/locktrail-0.1.0.tgz -- locktrail demo
 ```
 
-Open `report.html` in your browser. It works offline, with search, filters and
-dependency paths. The demo uses invented packages and the real analysis engine.
+The demo uses invented packages and the real analysis engine. Add
+`--format html --output report.html` and open `report.html` in your browser for
+search, filters and dependency paths. Downloading the release needs a connection;
+the analysis itself runs offline. The release includes a SHA-256 checksum.
 
-This is an **early 0.1.0 preview**, available from source. It has not been published
-to the npm registry. To put this checkout's CLI on your PATH:
+This is an **early 0.1.0 preview**, distributed through GitHub Releases. It has not
+been published to the npm registry. `npm exec` above uses the explicit release
+URL, not an npm package with the same name.
+
+## Run on your repository
+
+Open a terminal **in your own npm project's Git repository**. Choose the comparison
+that matches your changes; Git and the named refs must be available locally.
+
+**Review a committed dependency-update branch against main:**
 
 ```sh
-npm install --global .
+npm exec --yes --ignore-scripts --package=https://github.com/lukaluka3/locktrail/releases/download/v0.1.0/locktrail-0.1.0.tgz -- locktrail --base origin/main --head HEAD --merge-base --format html --output locktrail-review.html
+```
+
+Replace `origin/main` with your project's base branch if different. **Review
+uncommitted changes to your lockfile instead:**
+
+```sh
+npm exec --yes --ignore-scripts --package=https://github.com/lukaluka3/locktrail/releases/download/v0.1.0/locktrail-0.1.0.tgz -- locktrail --base HEAD --format html --output locktrail-review.html
+```
+
+Open `locktrail-review.html`. It stays on your machine; no account or upload is
+required. If that file already exists, choose another output name. Comparing
+against `HEAD` after committing your changes correctly produces an empty report;
+use the branch comparison above for a committed update.
+
+For repeated use, you can install that same GitHub release globally:
+
+```sh
+npm install --global --ignore-scripts https://github.com/lukaluka3/locktrail/releases/download/v0.1.0/locktrail-0.1.0.tgz
 locktrail --help
 ```
 
@@ -50,7 +76,10 @@ The example is synthetic. An install-script flag is a reason to inspect a packag
 it does not establish that the package is unsafe. Locktrail never installs the
 target project's dependencies or runs their code.
 
-## Review a real update
+## More commands
+
+These shorter commands assume you installed `locktrail` as above. Run Git
+comparisons from your own project, or specify it with `--repo`.
 
 ```sh
 # Two local lockfiles
@@ -161,6 +190,8 @@ and the assumptions we still need to validate.
 ## Development
 
 ```sh
+git clone https://github.com/lukaluka3/locktrail.git
+cd locktrail
 npm run check
 npm pack --dry-run
 ```

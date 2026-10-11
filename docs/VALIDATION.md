@@ -1,5 +1,20 @@
 # Real lockfile validation
 
+## Public-release first-run check
+
+The v0.1.0 GitHub release was also installed through `npm exec` using a fresh
+temporary directory and empty npm cache, with lifecycle scripts disabled. The
+exact release-URL command now shown in the README successfully ran the synthetic
+demo, compared an uncommitted lockfile edit in a separate test repository, and
+generated an HTML report for a committed update branch against its base. The
+test repository's tracked files, branch and commits were left unchanged by
+Locktrail. This check used Windows and Node.js 24.15.0; it is not a timing or
+adoption measurement.
+
+```sh
+npm exec --yes --ignore-scripts --package=https://github.com/lukaluka3/locktrail/releases/download/v0.1.0/locktrail-0.1.0.tgz -- locktrail demo
+```
+
 The [initial GitHub CI run](https://github.com/lukaluka3/locktrail/actions/runs/38180250693)
 at commit `8557a66e7095c0ad7e5675405a159dcc3721d942` passed all nine jobs:
 Node.js 20, 22, and 24 on Windows, Linux, and macOS. Each job ran the 50-test suite,
